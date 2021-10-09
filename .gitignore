@@ -1,5 +1,7 @@
 mngr-srv/
 mngr-ui/
+app_data
+keycloak_data
 
 HELP.md
 target/

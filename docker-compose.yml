@@ -4,9 +4,10 @@ services:
   keycloak-db:
     image: postgres:13.4
     volumes:
-      - ./.keycloak_data:/var/lib/postgresql/data
+      - ./keycloak_data:/var/lib/postgresql/data
     networks:
       - keycloak
+      - backend
     environment:
       POSTGRES_DB: "keycloak"
       POSTGRES_USER: "keycloak"
@@ -37,10 +38,10 @@ services:
   app-db:
     image: postgres:13.4
     volumes:
-      - ./.app_data:/var/lib/postgresql/data
+      - ./app_data:/var/lib/postgresql/data
     networks:
       - backend
-     ports:
+    ports:
       - "5432:5432"
     environment:
       POSTGRES_DB: "mosmngr"
