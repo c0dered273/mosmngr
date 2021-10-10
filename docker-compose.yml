@@ -16,12 +16,10 @@ services:
   
   keycloak:
     image: quay.io/keycloak/keycloak:latest
-    volumes:
-      - ./realm-export.json:/tmp/realm-export.json
     networks:
       - keycloak
     ports:
-      - "8081:8080"
+      - "8180:8080"
     environment:
       DB_VENDOR: postgres
       DB_ADDR: keycloak-db
@@ -31,7 +29,6 @@ services:
       DB_PASSWORD: keycloak
       KEYCLOAK_USER: admin
       KEYCLOAK_PASSWORD: admin
-      KEYCLOAK_IMPORT: /tmp/realm-export.json
     depends_on:
       - keycloak-db
 
